@@ -1,3 +1,35 @@
+/*
+  The Scroller class is a simple "news ticker" style widget.
+  
+  The markup should look something like this:
+
+  <script type="text/javascript" src="/javascripts/prototype.js"></script>
+	<script type="text/javascript" src="/javascripts/effects.js"></script>
+	<script type="text/javascript" src="/javascripts/scroller.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	  Event.observe(window, 'load', function(e) {
+	    var scroller = new Scroller("display", "contents", {delay: 7000});
+	  });
+	</script>
+	
+  ....
+  
+  <span id="display">&nbsp;</span>
+  <div id="contents" style="display: none;">
+  	<div>Lorem ipsum dolor sit amet <b>consectetur adipisicing elit</b></div>
+  	<div><a href="/somewhere">sed do eiusmod tempor</a> ut labore et dolore magna aliqua</div>
+  	<div><a href="/else">quis nostrud exercitation ullamco</a> Ut enim ad minim</div>
+  </div>
+  
+  The children of the "contents" element will be displayed in the "display" container. The contents are 
+  faded in and out. An optional delay value can be passed in. This represents the lenght in milliseconds
+  elements are shown for before the fadeout starts. Mousing over the a story will pause the ticker.
+  Shortly after mousing out, the article will rotate.
+  
+  Multiple "tickers" can be created for different parts of the same page with unique contents,
+  display locations and delays.
+  
+*/
 var Scroller = Class.create({
   initialize : function(display_id, content_id, opts) {
     opts = (opts == null ? { delay: 5500 } : opts);
